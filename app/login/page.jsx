@@ -27,7 +27,8 @@ const Login = () => {
     try {
       const response = await axios.post("/api/users/login", formData);
       toast.success("Login successful!");
-      router.push(`/profile/${response.data.message}`);
+      console.log(response.data.message);
+      router.push(`/`);
     } catch (error) {
       const errorMessage =
         error.response?.data?.message ?? "Something went wrong";

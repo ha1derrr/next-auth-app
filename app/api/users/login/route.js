@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import User from "../../../models/user.model";
 import sendMail from "../../../../helpers/sendMail/sendMail";
+import connectToDB from "../../../../dbConfig/dbConnect";
 
+connectToDB();
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
