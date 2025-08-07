@@ -20,7 +20,7 @@ A secure authentication system built with **Next.js 14 App Router**, **MongoDB**
 - [Mongoose](https://mongoosejs.com/)
 - [JWT (jsonwebtoken)](https://www.npmjs.com/package/jsonwebtoken)
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
-- [Nodemailer (optional)](https://nodemailer.com/about/)
+- [Nodemailer ](https://nodemailer.com/about/)
 
 ## ⚙️ Setup Instructions
 
