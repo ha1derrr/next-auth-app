@@ -28,6 +28,12 @@ const Login = () => {
       const response = await axios.post("/api/users/login", formData);
       toast.success("Login successful!");
       console.log(response.data.message);
+      const { token } = response?.data;
+      const responseAfterVerification = await axios.post(
+        `/api/users/verifyemail`,
+        { token }
+      );
+      console.log(responseAfterVerification);
       router.push(`/`);
     } catch (error) {
       const errorMessage =

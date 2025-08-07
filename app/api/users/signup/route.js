@@ -10,8 +10,8 @@ export async function POST(req) {
     console.log(body);
     const { email, username, password } = body;
 
-    // if ([email, username, password].some((field) => !field?.trim())) {
-    if ([email, password].some((field) => !field?.trim())) {
+    // if ([email, password].some((field) => !field?.trim())) {
+    if ([email, username, password].some((field) => !field?.trim())) {
       return NextResponse.json(
         { message: "Some of the fields are missing" },
         { status: 400 }
@@ -28,11 +28,11 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-
     const user = await User.create({ email, username, password });
-
+    const userObject = user.toObject();
+    delete userObject.password;
     return NextResponse.json(
-      { user, message: "User Signup Successful" },
+      { user: userObject, message: "User Signup Successful" },
       { status: 201 }
     );
   } catch (error) {

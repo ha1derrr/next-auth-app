@@ -9,6 +9,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    username: "",
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -26,10 +27,10 @@ const Signup = () => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      setError(null); // Clear any previous error
+      setError(null);
 
       const response = await axios.post("/api/users/signup", formData);
-      console.log(response.data);
+      console.log(response.data.message);
 
       toast.success("Signup successful!");
       navigate.push("/login");
@@ -73,6 +74,23 @@ const Signup = () => {
             type="text"
             name="email"
             value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-300"
+          />
+        </div>
+        <div className="mb-6">
+          <label
+            htmlFor="username"
+            className="block text-gray-700 font-semibold mb-2"
+          >
+            Username
+          </label>
+          <input
+            placeholder="Enter your username"
+            id="username"
+            type="text"
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             className="w-full px-4 py-3 border rounded-xl outline-none focus:ring-2 focus:ring-blue-300"
           />

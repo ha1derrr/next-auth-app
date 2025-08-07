@@ -18,8 +18,18 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    passwordUpdateToken: String,
-    passwordTokenExpiry: Date,
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    resetPasswordToken: String,
+    resetPasswordTokenExpiry: Date,
+    verifyToken: String,
+    verifyTokenExpiry: Date,
   },
   { timestamps: true }
 );
